@@ -18,7 +18,7 @@ class Paper {
   rotating = false;
 
   init(paper) {
-    paper.addEventListener('touchmove', (e) => {
+    paper.addEventListener('touch', (e) => {
       e.preventDefault();
       if(!this.rotating) {
         this.touchMoveX = e.touches[0].clientX;
@@ -46,8 +46,8 @@ class Paper {
           this.currentPaperX += this.velX;
           this.currentPaperY += this.velY;
         }
-        this.prevTouchX = this.touchMoveX;
-        this.prevTouchY = this.touchMoveY;
+        this.prevTouchX = this.touchX;
+        this.prevTouchY = this.touch;
 
         paper.style.transform = `translateX(${this.currentPaperX}px) translateY(${this.currentPaperY}px) rotateZ(${this.rotation}deg)`;
       }
